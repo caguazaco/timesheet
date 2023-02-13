@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+
+        
+        {% load static %}
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" type="text/css">
+        
+        <!-- CSS -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    </head>
+    <body style="background: linear-gradient(90deg, rgba(2,0,36,0.85) 20%, rgba(233,236,239,1) 100%)">
+        <div class="login-container">
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <h2>Timesheet App</h2>
+                <div class="inputs">
+                    <div class="input">
+                        <input type="text" placeholder="Email" autofocus id="email" name="username">
+                        <label for="email">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                    <div class="input">
+                        <input type="password" placeholder="Password" id="password" name="password">
+                        <label for="password" onclick="passwordtoggle()" id="icon">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                </div>
+                <input type="submit" value="Login" class="login-button">
+                <p class="forget">
+                    <a href="">Forgot password?</a>
+                </p>
+            </form>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        let passwordInput = document.getElementById("password")
+        let lockIcon = document.getElementById("icon")
+        let toggle = true
+
+        function passwordtoggle(){
+            if(toggle){
+                passwordInput.setAttribute("type", "text")
+                lockIcon.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>'
+                toggle = false
+            } else {
+                passwordInput.setAttribute("type", "password")
+                lockIcon.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>'
+                toggle = true
+            }
+        }
+    </script>
+</html>

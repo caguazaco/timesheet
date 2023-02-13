@@ -1,0 +1,224 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body , .main-container {
+    height: 100%;
+}
+
+/* Login page */
+.login-container {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    width: 280px;
+    height: 380px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    background: #e9ecef;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 250px;
+    height: 380px;
+    color: #17a2b8;
+}
+
+.input {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0.5rem;
+}
+
+.input input {
+    width: 210px;
+    height: 45px;
+    border-radius: 0 3px 3px 0;
+    border: 1px solid #dbdbdb;
+    border-left: transparent;
+    transition: .3s ease;
+    padding-left: .3rem;
+}
+
+.input input::placeholder {
+    color: #dbdbdb;
+}
+
+.input label {
+    display: block;
+    width: 40px;
+    height: 45px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 3px 0 0 3px;
+    border-right: transparent;
+    transition: .3s ease;
+    background: #17a2b8;
+    color: #dbdbdb;
+}
+
+.fa-eye, .fa-eye-slash {
+    cursor: pointer;
+}
+
+.input input:focus {
+    color: #014c78;
+}
+
+.input input:focus + label {
+    border-color: #014c78;
+    color: #014c78;
+}
+
+.input input:focus::placeholder {
+    color: #014c78;
+}
+
+.login-button {
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.1rem;
+    background: #17a2b8;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Base template */
+
+.main-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0px 0px;
+    grid-template-areas: 
+        ". ."
+        ". .";
+}
+
+.navbar-container {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 1;
+    grid-row-end: span 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #455A64;
+}
+
+.box {
+    padding: 10px 15px;
+}
+
+.user-box {
+    width: 200px;
+    text-align: center;
+    font-size: 20px;
+    background: #263238;
+    color: #cfd8dc;
+}
+
+.logout-box a {
+    color: #263238;
+}
+
+.sidebar-container {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    background: #37474f;
+    color: #cfd8dc;
+}
+
+.sidebar-navigation {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.sidebar-navigation li {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    line-height: 20px;
+    background: transparent;
+}
+
+.sidebar-navigation li a {
+    display: block;
+    padding: 10px 15px;
+    color:#cfd8dc;
+}
+
+.sidebar-navigation li .fa, .logout-box .fa {
+    margin-right: 6px;
+}
+
+.sidebar-navigation li a:link, .sidebar-navigation li a:visited, .sidebar-navigation li a:hover, .sidebar-navigation li a:active,
+.logout-box a:link, .logout-box a:visited, .logout-box a:hover, .logout-box a:active {
+    text-decoration: none;
+    outline: none;
+}
+
+.sidebar-navigation li::before {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: '';
+    -webkit-transition: width 0.2s ease-in;
+    transition: width 0.2s ease-in;
+    background: #17a2b8;
+    z-index: -1;
+}
+
+.sidebar-navigation li:hover::before {
+    width: 100%;
+}
+
+.content-container {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+}
+
+.container-fluid {
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.jumbotron {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 32px;
+}
+
+.lead {
+    font-size: 1rem;
+}
+
+ul.errorlist {
+    display: none; /* Hide the error list field */
+}
