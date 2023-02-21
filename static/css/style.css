@@ -222,3 +222,17 @@ html, body , .main-container {
 ul.errorlist {
     display: none; /* Hide the error list field */
 }
+
+/* Others */
+table {
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+
+th, label {
+    font-weight: bold;
+}
+
+.dropdown, .description {
+    max-width: 150px;
+}
