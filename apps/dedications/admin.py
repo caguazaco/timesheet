@@ -12,29 +12,29 @@ class TaskAdminConfig(admin.ModelAdmin):
 
 class OccupationAdminConfig(admin.ModelAdmin):
     model = Occupation
-    list_display = ('user', 'task', 'date', 'start_time', 'end_time', 'description')
-    ordering = ('user', '-date', '-start_time')
+    list_display = ('users', 'tasks', 'date', 'start_time', 'end_time', 'description')
+    ordering = ('users', '-date', '-start_time')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == 'user':
+        if db_field.name == 'users':
             kwargs['queryset'] = User.objects.filter(is_active=True)
         
-        if db_field.name == 'task':
+        if db_field.name == 'tasks':
             kwargs['queryset'] = Task.objects.filter(is_active=True)
         
         return super(OccupationAdminConfig, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 class UserTaskAdminConfig(admin.ModelAdmin):
     model = UserTask
-    list_filter = ('task', 'is_active')
-    list_display = ('user', 'task', 'is_active')
-    ordering = ('user', 'task')
+    list_filter = ('tasks', 'is_active')
+    list_display = ('users', 'tasks', 'is_active')
+    ordering = ('users', 'tasks')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        if db_field.name == 'user':
+        if db_field.name == 'users':
             kwargs['queryset'] = User.objects.filter(is_active=True)
         
-        if db_field.name == 'task':
+        if db_field.name == 'tasks':
             kwargs['queryset'] = Task.objects.filter(is_active=True)
         
         return super(UserTaskAdminConfig, self).formfield_for_foreignkey(db_field, request, **kwargs)
