@@ -13,8 +13,11 @@ def billing_period(CUTOFF_DAY):
 
 def format_dates(data):
     for row in data:
-        if hasattr(row, 'date'): row.date = row.date.strftime('%Y-%m-%d')
-        if hasattr(row, 'start_time'): row.start_time = row.start_time.strftime('%H:%M')
-        if hasattr(row, 'end_time'): row.end_time = row.end_time.strftime('%H:%M')
+        if hasattr(row, 'date'):
+            row.date = row.date.strftime('%Y-%m-%d')
+        if hasattr(row, 'start_time'):
+            row.start_time = row.start_time.strftime('%H:%M')
+        if hasattr(row, 'end_time'):
+            row.end_time = row.end_time.strftime('%H:%M')
     
     return data
