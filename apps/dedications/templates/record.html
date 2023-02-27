@@ -23,7 +23,7 @@
                                 <input type="date" value="{{ occupation.date }}" readonly>
                             </td>
                             <td>
-                                <input type="text" value="{{ occupation.task }}" class="dropdown" readonly>
+                                <input type="text" value="{{ occupation.tasks }}" class="dropdown" readonly>
                             </td>
                             <td>
                                 <input type="time" value="{{ occupation.start_time }}" readonly>
@@ -35,7 +35,7 @@
                                 <input type="text" value="{{ occupation.description }}" class="description" readonly>
                             </td>
                             <td>
-                                <a href="#">
+                                <a href="{% url 'edit_occupation' occupation.id %}">
                                     <button class="btn btn-info">Edit</button>
                                 </a>
                             </td>
@@ -49,7 +49,7 @@
                 </tbody>
             </table>
         {% else %}
-            <p class="lead">No occupations to show.</p>
+            <p class="lead">No dedications to show.</p>
         {% endif %}
     </div>
 {% endblock %}
