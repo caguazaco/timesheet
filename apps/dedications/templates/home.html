@@ -51,7 +51,6 @@
                     <th>End time</th>
                     <th>Description</th>
                     <th></th>
-                    <th></th>
                 </thead>
                 <tbody>
                     {% for occupation in occupations %}
@@ -74,11 +73,6 @@
                             <td>
                                 <a href="{% url 'edit_occupation' occupation.id %}">
                                     <button class="btn btn-info">Edit</button>
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{% url 'delete_occupation' occupation.id %}">
-                                    <button class="btn btn-danger">Delete</button>
                                 </a>
                             </td>
                         </tr>

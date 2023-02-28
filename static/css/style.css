@@ -83,7 +83,7 @@ html, body , .main-container {
     color: #014c78;
 }
 
-.login-button {
+.btn-login {
     width: 250px;
     height: 40px;
     border: none;
@@ -92,7 +92,6 @@ html, body , .main-container {
     font-size: 1.1rem;
     background: #17a2b8;
     color: #fff;
-    cursor: pointer;
 }
 
 /* Base template */
@@ -223,6 +222,10 @@ ul.errorlist {
     display: none; /* Hide the error list field */
 }
 
+.btn {
+    cursor: pointer;
+}
+
 /* Others */
 table {
     border-spacing: 10px;
@@ -235,4 +238,8 @@ th, label {
 
 .dropdown, .description {
     max-width: 150px;
+}
+
+.delete-box {
+    margin-top: 15px;
 }

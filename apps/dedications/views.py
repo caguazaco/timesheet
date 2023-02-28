@@ -14,8 +14,6 @@ CUTOFF_DAY = config('CUTOFF_DAY', cast = int)
 # Create your views here.
 @login_required
 def home(request):
-    print(today)
-    print(lower_date)
     occupations = list_occupations(request, today)
     tasks = list_user_active_tasks(request)
 
@@ -83,6 +81,7 @@ def edit_occupation(request, id):
     if form.is_valid():
         form.save()
         
+        #return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         return redirect('home')
 
     context = {
@@ -96,7 +95,7 @@ def delete_occupation(request, id):
     occupation = Occupation.objects.get(id = id)
     occupation.delete()
 
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect('home')
 
 def logout(request):
     logout(request)

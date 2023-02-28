@@ -21,5 +21,11 @@
                 {% endfor %}
             {% endfor %}
         {% endif %}
+
+        <div class="delete-box">
+            <a href="{% url 'delete_occupation' form.instance.id %}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+        </div>
     </div>
 {% endblock %}
