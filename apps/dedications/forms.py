@@ -2,7 +2,7 @@ from django import forms
 from django.forms.models import ModelForm
 from .models import Occupation
 
-class OccupationForm(forms.ModelForm):
+class OccupationForm(ModelForm):
     class Meta:
         model = Occupation
         fields = ['users', 'date', 'tasks', 'start_time', 'end_time', 'description']
@@ -23,6 +23,7 @@ class OccupationForm(forms.ModelForm):
     def clean(self):
         super(OccupationForm, self).clean() # Data from the form is fetched using the super function
 
+        user = self.cleaned_data.get('users')
         date = self.cleaned_data.get('date')
         start_time = self.cleaned_data.get('start_time')
         end_time = self.cleaned_data.get('end_time')
@@ -31,9 +32,9 @@ class OccupationForm(forms.ModelForm):
         if self.instance.id is not None:
             # Excludes the current instance from overlap validation
             id = self.instance.id
-            occupations = Occupation.objects.filter(date = date).exclude(id = id).values()
+            occupations = Occupation.objects.filter(users = user, date = date).exclude(id = id).values()
         else:
-            occupations = Occupation.objects.filter(date = date).values()
+            occupations = Occupation.objects.filter(users = user, date = date).values()
         
         errors = 0
 
