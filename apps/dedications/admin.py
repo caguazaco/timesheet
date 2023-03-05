@@ -13,7 +13,7 @@ class TaskAdminConfig(admin.ModelAdmin):
 class OccupationAdminConfig(admin.ModelAdmin):
     model = Occupation
     list_display = ('users', 'tasks', 'date', 'start_time', 'end_time', 'description')
-    ordering = ('users', '-date', '-start_time')
+    ordering = ('-users', '-date', '-start_time')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'users':
@@ -28,7 +28,7 @@ class UserTaskAdminConfig(admin.ModelAdmin):
     model = UserTask
     list_filter = ('tasks', 'is_active')
     list_display = ('users', 'tasks', 'is_active')
-    ordering = ('users', 'tasks')
+    ordering = ('-users', 'tasks')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'users':

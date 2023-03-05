@@ -17,7 +17,7 @@ function limitDates() {
     let lowerDate = new Date()
 
     if (today < cutoffDay) {
-        lowerDate = currentDate.getDate() - today
+        lowerDate.setDate(currentDate.getDate() - today)
     }
 
     lowerDate.setDate(cutoffDay)

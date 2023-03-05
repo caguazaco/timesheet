@@ -9,7 +9,7 @@ def billing_period(CUTOFF_DAY):
         aux_date = today - timedelta(days = today.day)
         lower_date = datetime(aux_date.year, aux_date.month, CUTOFF_DAY)
     
-    return [today, lower_date.date()]
+    return [lower_date.date(), today]
 
 def format_dates(data):
     for row in data:
